@@ -1,0 +1,90 @@
+name: Publish Package to npm
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9.1.0
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build package
+        run: pnpm --filter @laddhaanshul/layout-spacing build
+
+      - name: Run tests
+        run: pnpm --filter @laddhaanshul/layout-spacing test
+
+      - name: Extract version from tag
+        id: version
+        shell: bash
+        run: |
+          TAG_VERSION="${GITHUB_REF#refs/tags/}"
+          echo "tag=$TAG_VERSION" >> $GITHUB_OUTPUT
+          # Strip 'v' prefix if present
+          CLEAN_VERSION="${TAG_VERSION#v}"
+          echo "version=$CLEAN_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Update package version
+        working-directory: packages/layout-spacing
+        run: |
+          echo "Updating package version to ${{ steps.version.outputs.version }}"
+          npm version ${{ steps.version.outputs.version }} --no-git-tag-version
+
+      - name: Publish to npm
+        working-directory: packages/layout-spacing
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  verify:
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Verify published package
+        run: |
+          sleep 30  # Wait for npm to propagate
+          PACKAGE_VERSION="${{ needs.publish.outputs.version }}"
+          echo "Verifying @laddhaanshul/layout-spacing@${PACKAGE_VERSION}"
+          npm view @laddhaanshul/layout-spacing versions --json | grep "${PACKAGE_VERSION}" || echo "Package version ${PACKAGE_VERSION} not found yet (may take a few minutes)"
+
