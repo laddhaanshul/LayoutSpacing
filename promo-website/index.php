@@ -585,15 +585,15 @@ $stats = [
 
     <section class="comparison">
         <div class="section-header">
-            <h2>Why not just use Tailwind?</h2>
-            <p>Tailwind is great, but Layout Spacing is built specifically for structural consistency across platforms.</p>
+            <h2>Why not just use other libraries?</h2>
+            <p>Other libraries are great, but Layout Spacing is built specifically for structural consistency across platforms.</p>
         </div>
         <table>
             <thead>
                 <tr>
                     <th>Feature</th>
                     <th>Layout Spacing</th>
-                    <th>Tailwind CSS</th>
+                    <th>Other Libraries</th>
                 </tr>
             </thead>
             <tbody>
@@ -756,20 +756,7 @@ $stats = [
     <section class="release-notes" style="padding: 8rem 0; border-top: 1px solid var(--glass-border);">
         <div class="section-header">
             <h2>Latest Release Notes</h2>
-            <p>Version 1.0.0 is now live with exciting new features and performance improvements.</p>
-        </div>
-        <div class="container" style="max-width: 900px;">
-            <div class="stat-card" style="text-align: left; padding: 4rem;">
-                <h3 style="color: var(--primary); margin-bottom: 2rem;">v1.0.0 — The Unified Foundation</h3>
-                <ul class="api-list" style="margin-bottom: 2rem;">
-                    <li><strong>New Component: Stack</strong>. A simplified container for vertical and horizontal distribution with built-in gap support.</li>
-                    <li><strong>Improved TypeScript Engine</strong>. Better inference for spacing tokens and responsive objects, reducing the need for manual type casting.</li>
-                    <li><strong>React Native Performance Boost</strong>. Optimized the resolver pipeline to minimize object allocations during the render cycle.</li>
-                    <li><strong>New Prop: <code>as</code></strong>. You can now render any Layout Spacing component as any HTML element or custom component.</li>
-                    <li><strong>Bug Fix</strong>. Resolved an issue where <code>AspectRatio</code> would sometimes calculate incorrect heights on window resize.</li>
-                </ul>
-                <p style="color: var(--text-dim);">Check out the full changelog on <a href="<?php echo $github_url; ?>/releases" style="color: var(--primary);">GitHub</a>.</p>
-            </div>
+            <p>Version 1.0.1 is now live with exciting new features and performance improvements.</p>
         </div>
     </section>
 
@@ -921,49 +908,10 @@ yarn add @laddhaanshul/layout-spacing</pre>
                 <a href="<?php echo $github_url; ?>" style="color: var(--primary); display: block; margin-top: 1rem; font-weight: 600;">GitHub Repository →</a>
             </div>
             <div class="stat-card">
-                <h4 style="margin-bottom: 1rem; color: var(--secondary);">Share the Love</h4>
-                <p>Found a great layout pattern? Share it with the community using the #LayoutSpacing hashtag on social media.</p>
-                <a href="#" style="color: var(--secondary); display: block; margin-top: 1rem; font-weight: 600;">Share on X/Twitter →</a>
-            </div>
-            <div class="stat-card">
                 <h4 style="margin-bottom: 1rem; color: #10b981;">Contribute</h4>
                 <p>We welcome pull requests for new features, bug fixes, and documentation improvements. Help us make the web more consistent.</p>
-                <a href="<?php echo $github_url; ?>/blob/main/CONTRIBUTING.md" style="color: #10b981; display: block; margin-top: 1rem; font-weight: 600;">View Guide →</a>
+                <a href="<?php echo $github_url; ?>/blob/main/contributors.md" style="color: #10b981; display: block; margin-top: 1rem; font-weight: 600;">View Guide →</a>
             </div>
-        </div>
-        <div class="container" style="max-width: 800px; margin-top: 6rem; border-top: 1px solid var(--glass-border); padding-top: 4rem;">
-            <p style="font-size: 1.1rem; color: var(--text-dim); margin-bottom: 2rem;">"Layout Spacing has transformed the way our team builds cross-platform apps. The 8pt grid is now our second language, and our designer-to-developer handoff is smoother than ever."</p>
-            <p style="font-weight: 700; color: white;">— Senior Frontend Engineer @ TechScale</p>
-        </div>
-    </section>
-
-    <section class="about-dev" style="padding: 8rem 0; background: #000;">
-        <div class="container" style="display: flex; align-items: center; gap: 4rem;">
-            <div class="api-docs">
-                <h2 style="font-size: 3rem; margin-bottom: 2rem;">Meet the Creator</h2>
-                <p>Anshul Laddha is a software architect passionate about building tools that bridge the gap between design and code. With years of experience in cross-platform development, he created Layout Spacing to solve the recurring challenges of structural consistency in large-scale applications.</p>
-                <div class="btn-group" style="margin-top: 2rem;">
-                    <a href="https://twitter.com/laddhaanshul" class="btn btn-outline">Follow on X</a>
-                    <a href="https://github.com/laddhaanshul" class="btn btn-outline">GitHub Profile</a>
-                </div>
-            </div>
-            <div style="flex: 0.5;">
-                <div class="stat-card" style="padding: 1rem; border-radius: 50%; width: 200px; height: 200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 5rem; background: var(--primary);">
-                    👨‍💻
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="sponsors" style="padding: 6rem 0; text-align: center;">
-        <div class="section-header" style="margin-bottom: 3rem;">
-            <h3 style="font-size: 1.5rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.2em;">Backed by Innovation</h3>
-        </div>
-        <div class="container" style="display: flex; justify-content: center; gap: 4rem; opacity: 0.5; filter: grayscale(1);">
-            <div style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800;">TECHCORP</div>
-            <div style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800;">DESIGNGRID</div>
-            <div style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800;">GLOBALDEV</div>
-            <div style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800;">CODEBASE</div>
         </div>
     </section>
 
@@ -976,7 +924,8 @@ yarn add @laddhaanshul/layout-spacing</pre>
             <a href="<?php echo $npm_url; ?>">NPM Registry</a>
             <a href="#">Support</a>
         </div>
-        <p class="copy">&copy; <?php echo date('Y'); ?> Anshul Laddha. Built with Layout Spacing. MIT Licensed.</p>
+        <p class="copy">&copy; <?php echo date('Y'); ?> Color Tokens Contributors. Licensed under the MIT License.
+Built with care for the React & React Native communities.</p>
     </footer>
 </div>
 

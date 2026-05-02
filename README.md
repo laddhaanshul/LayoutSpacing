@@ -699,17 +699,6 @@ The 8pt grid is a methodology that uses multiples of 8 to define the dimensions,
 
 ---
 
-## ⚔️ Comparison: How We Differ
-
-| Feature | @laddhaanshul/layout-spacing | Tailwind CSS | Styled System |
-| :--- | :--- | :--- | :--- |
-| **Philosophy** | Layout-first Primitives | Utility-first Classes | Style-props on anything |
-| **Runtime** | Zero / Near-Zero | None (PostCSS) | Dependent on Emotion/SC |
-| **Native Support** | Native-First | Via NativeWind (Heavy) | Fragmented |
-| **API Consistency** | Identical across platforms | Class mappings differ | Mostly Web-focused |
-
----
-
 ## 🏗 Architecture: Under the Hood
 
 ### The Resolver Pipeline
