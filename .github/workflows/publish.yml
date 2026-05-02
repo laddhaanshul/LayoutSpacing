@@ -60,11 +60,15 @@ jobs:
           CLEAN_VERSION="${TAG_VERSION#v}"
           echo "version=$CLEAN_VERSION" >> $GITHUB_OUTPUT
 
-      - name: Update package version
-        working-directory: packages/layout-spacing
+      - name: Update package versions
         run: |
-          echo "Updating package version to ${{ steps.version.outputs.version }}"
-          npm version ${{ steps.version.outputs.version }} --no-git-tag-version
+          VERSION="${{ steps.version.outputs.version }}"
+          echo "Updating all package.json files to $VERSION"
+          # Update root package.json
+          npm version $VERSION --no-git-tag-version
+          # Update package package.json
+          cd packages/layout-spacing
+          npm version $VERSION --no-git-tag-version
 
       - name: Publish to npm
         working-directory: packages/layout-spacing
