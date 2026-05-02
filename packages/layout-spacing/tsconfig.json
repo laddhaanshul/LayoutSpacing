@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/types",
+    "rootDir": "./src",
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "./dist/types"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "**/__tests__/**", "src/web/**", "src/native/**"]
+}
+

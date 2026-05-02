@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "Layout Spacing Example",
+    "slug": "layout-spacing-example",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#3B82F6"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.laddhaanshul.layoutspacing"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#3B82F6"
+      },
+      "package": "com.laddhaanshul.layoutspacing"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "scheme": "colortokens"
+  }
+}
